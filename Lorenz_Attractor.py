@@ -1,7 +1,7 @@
 # Preferences: 
 
 # this defines how much of the graph is added at a time
-SEGMENT_LENGTH = 50
+SEGMENT_LENGTH = 10
 # ...and how quickly
 TIME_STEP = 10
 
@@ -10,8 +10,6 @@ DATA_FILE = 'L_DATA.npy'
 
 # figure size
 SIZE = 10
-
-
 
 
 
@@ -27,8 +25,11 @@ import matplotlib.animation as animation
 data = np.load(DATA_FILE) # N x 3 data array
 
 def add_segment(n):
-    pts = data[n:n+SEGMENT_LENGTH].T
-    ax.plot(pts[0], pts[1], pts[2], 'b', linewidth=0.2)
+    pts = data[:n+SEGMENT_LENGTH].T
+    curve.set_data(pts[0], pts[1])
+    curve.set_3d_properties(pts[2])
+    point.set_data([pts[0][-1]], [pts[1][-1]])
+    point.set_3d_properties(pts[2][-1])
     return None
 
 fig = plt.figure(figsize=(int(SIZE),int(SIZE)))
@@ -40,6 +41,8 @@ ax.set_ylabel('Y')
 ax.set_zlim3d([-5,53])
 ax.set_zlabel('Z')
 ax.set_title('Lorenz Attractor')
+curve, = ax.plot([],[], [], 'b', linewidth=0.2)
+point, = ax.plot([], [], "o")
 
 # Create the Animation object
 line_ani = animation.FuncAnimation(fig, add_segment, range(0, len(data) - SEGMENT_LENGTH, SEGMENT_LENGTH - 1), 

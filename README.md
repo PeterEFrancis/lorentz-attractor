@@ -7,7 +7,7 @@ To run the simulation
  1. (Optionally) modify view settings in **Lorenz_Attractor.py**.
  1. Run **Lorenz_Attractor.py**:
  ```bash
- python3 ~/path/to/Lorenz_Attractor.py
+ $ python3 ~/path/to/Lorenz_Attractor.py
  ```
 
 

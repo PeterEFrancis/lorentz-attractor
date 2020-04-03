@@ -1,9 +1,5 @@
 # Lorentz System Solution (Attractor) Animation
 
-Information on the Lorenz System: https://en.wikipedia.org/wiki/Lorenz_system
-
-<img src="example.png" style="width:100px;" />
-
 To run the simulation
  1. Download the repository.
  1. Navigate to repository directory
@@ -13,3 +9,10 @@ To run the simulation
  ```bash
  python3 ~/path/to/Lorenz_Attractor.py
  ```
+
+
+
+Information on the Lorenz System: https://en.wikipedia.org/wiki/Lorenz_system
+
+<img src="example.png" style="width:100px;" />
+
